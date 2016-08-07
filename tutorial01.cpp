@@ -140,14 +140,14 @@ int main(int argc, char *argv[]) {
     pCodecParam = pFormatCtx->streams[videoStream]->codecpar;
     //but function avcodec_open2() need pCodecCtx,so copy  (AVCodecParameters) pCodecParam to (AVCodecContext) pCodecCtx
     pCodec = avcodec_find_decoder(pCodecParam->codec_id);
-    pCodecCtx = avcodec_alloc_context3(pCodec);
-    avcodec_parameters_to_context(pCodecCtx, pCodecParam);
-
-    // Find the decoder for the video stream
+        // Find the decoder for the video stream
     if (pCodec == NULL) {
         fprintf(stderr, "Unsupported codec!\n");
         return -1; // Codec not found
     }
+    pCodecCtx = avcodec_alloc_context3(pCodec);
+    avcodec_parameters_to_context(pCodecCtx, pCodecParam);
+
     // Open codec
     if (avcodec_open2(pCodecCtx, pCodec, &optionsDict)<0)
         return -1; // Could not open codec
