@@ -27,3 +27,4 @@ I changed some deprecated functions and symbols to their suggested style.You can
 
 ***
 All code compiled and run on win10 with vs 2013 community.
+If you find an error or have other problems , please [submit an issue](https://github.com/HeartUnchange/ffmpeg-study-note/issues/new)
